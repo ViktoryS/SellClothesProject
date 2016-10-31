@@ -1,23 +1,15 @@
-//change package name according to convention
-//com.clothers.servlets
-//com.clothers.dao
-package my.servlets;
+package com.clothes.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.clothes.dao.MemoryStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import dao.layer.ClothesClass;
-
-//TODO: Remove javadocs
-/**
- * Created by Vikki on 30.10.2016.
- */
 @WebServlet("/add")
 public class AddServlet extends HttpServlet {
 
@@ -31,16 +23,15 @@ public class AddServlet extends HttpServlet {
 		Double price = Double.parseDouble(request.getParameter("price"));
 
 		if (name != null && size != null && price != 0) {
-			ClothesClass.cNames.add(name);
-			ClothesClass.cSizes.add(size);
-			ClothesClass.cPrices.add(price);
+			MemoryStorage.addCloth(name, size, price);
 
 			// TODO: Clothe <name> was added successfully
-			responceWriter.print("<h1> Ok! </h1>");
+			responceWriter.print("<h1> Congradulations! Cloth "+ name +" was added successfully! </h1>");
 		} else {
-			
-			//TODO: Specify which parameter is empty
-			responceWriter.print("<h1> Error! Some parameter is empty! </h1>");
+			responceWriter.print("<h1> Error! Parameters:&nbsp"+
+					(name==null?"name&nbsp":"") +
+					(size==null?"size&nbsp":"") +
+					(price==0?"price&nbsp":"") +" is empty! </h1>");
 		}
 
 		responceWriter.close();

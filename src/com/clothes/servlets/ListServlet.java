@@ -1,6 +1,7 @@
-package my.servlets;
+package com.clothes.servlets;
 
-import dao.layer.ClothesClass;
+import com.clothes.dao.Cloth;
+import com.clothes.dao.MemoryStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,12 +23,15 @@ public class ListServlet extends HttpServlet {
 
         //TODO: Show msg "List is empty" in case no product available
         responceWriter.print("<h1> Clothes: </h1><br>");
-        
+        if (MemoryStorage.getCountOfClothes() == 0){
+            responceWriter.print("<p>There are no clothes in the list.</p>");
+        }
+
         //TODO: Please use foreach
-        for (int i = 0; i< ClothesClass.cPrices.size(); i++){
-            responceWriter.print("<p>  Name: "+ ClothesClass.cNames.get(i)
-                    + "&nbsp Size: " + ClothesClass.cSizes.get(i) + "&nbsp Price: "
-                    + ClothesClass.cPrices.get(i) + "</p><br>");
+        for (Cloth cloth: MemoryStorage.getAllClothes()){
+            responceWriter.print("<p>  Name: "+ cloth.getName()
+                    + "&nbsp Size: " + cloth.getSize() + "&nbsp Price: "
+                    + cloth.getPrice() + "</p><br>");
         }
         responceWriter.close();
 
