@@ -1,5 +1,6 @@
 package com.clothes.entities.clothbuilder;
 
+//TODO: Remove
 public class Cloth{
     private String name;
     private char size;

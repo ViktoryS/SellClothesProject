@@ -3,6 +3,7 @@ package com.clothes.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: Remove this one
 public class MemoryStorage {
 
     private static List<Cloth> clothes = new ArrayList<Cloth>();

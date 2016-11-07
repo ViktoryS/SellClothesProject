@@ -1,5 +1,7 @@
 package com.clothes.entities;
 
+//TODO: Move to model package
+//TODO: Remove entities package
 public class Cloth{
     private String name;
     private char size;

@@ -19,10 +19,12 @@ public class ClothesStorage {
         return clothes.get(i);
     }
 
+    //TODO: Use Cloth in method input parameter
     public static boolean addCloth(String name, char size, double price){
         return clothes.add(new Cloth(name, size, price));
     }
 
+    //TODO: Create isEmpty method or smth like that
     public static int getCountOfClothes(){
         return clothes.size();
     }

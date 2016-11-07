@@ -1,5 +1,6 @@
 package com.clothes.dao;
 
+//TODO: Remove
 public class Cloth{
     private String name;
     private char size;
