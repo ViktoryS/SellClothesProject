@@ -1,6 +1,6 @@
 package com.clothes.servlets;
 
-import com.clothes.entities.Cloth;
+import com.clothes.entities.clothbuilder.Cloth;
 import com.clothes.dao.ClothesStorage;
 
 import javax.servlet.ServletException;
