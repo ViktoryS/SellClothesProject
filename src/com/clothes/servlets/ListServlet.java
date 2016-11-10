@@ -1,8 +1,7 @@
 package com.clothes.servlets;
 
-import com.clothes.entities.clothbuilder.Cloth;
 import com.clothes.dao.ClothesStorage;
-
+import com.clothes.model.Cloth;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +17,7 @@ public class ListServlet extends HttpServlet {
         PrintWriter responceWriter = response.getWriter();
 
         responceWriter.print("<h1> Clothes: </h1><br>");
-        if (ClothesStorage.getCountOfClothes() == 0){
+        if (ClothesStorage.isEmpty()){
             responceWriter.print("<p>There are no clothes in the list.</p>");
         } else {
             for (Cloth cloth : ClothesStorage.getAllClothes()) {

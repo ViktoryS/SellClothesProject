@@ -1,7 +1,6 @@
 package com.clothes.dao;
 
-import com.clothes.entities.clothbuilder.Cloth;
-
+import com.clothes.model.Cloth;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,14 +18,12 @@ public class ClothesStorage {
         return clothes.get(i);
     }
 
-    //TODO: Use Cloth in method input parameter
-    public static boolean addCloth(String name, char size, double price){
-        return clothes.add(new Cloth(name, size, price));
+    public static boolean addCloth(Cloth cloth){
+        return clothes.add(cloth);
     }
 
-    //TODO: Create isEmpty method or smth like that
-    public static int getCountOfClothes(){
-        return clothes.size();
+    public static boolean isEmpty(){
+        return clothes.isEmpty();
     }
 
 }

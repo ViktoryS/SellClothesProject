@@ -1,17 +1,15 @@
 package com.clothes.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.clothes.dao.ClothesStorage;
+import com.clothes.model.ClothBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.clothes.dao.ClothesStorage;
-import com.clothes.entities.Cloth;
-import com.clothes.entities.clothbuilder.ClothBuilder;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/add")
 public class AddServlet extends HttpServlet {
@@ -20,23 +18,26 @@ public class AddServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter responceWriter = response.getWriter();
 
-		//TODO: Please use readable names of variables
-		String n = request.getParameter("name");
-		String s = request.getParameter("size");
-		String p = request.getParameter("price");
+		String rqName = request.getParameter("name");
+		String rqSize = request.getParameter("size");
+		String rqPrice = request.getParameter("price");
 
-		if (n == null || s == null || p == null){
-			responceWriter.print("<h1> Error with parameters:&nbsp name = " + n +
-					", size = " + s + ", price = " + p + "</h1>");
+		//responceWriter.print("name = |" + rqName + "|        size = |" + rqSize + "|      price = |" + rqPrice + "|");
+
+		if (rqName == null || rqName.equals("") || rqSize == null || rqSize.equals("") || rqPrice == null || rqPrice.equals("")){
+			responceWriter.print("<h1> Error with parameters:&nbsp name = " + rqName +
+					", size = " + rqSize + ", price = " + rqPrice + "</h1>");
 		}else {
-			//TODO: Avoid dublication of code 
-			String name = request.getParameter("name");
-			Character size = request.getParameter("size").charAt(0);
-			Double price = Double.parseDouble(request.getParameter("price"));
-			
-			//TODO: Add Builder here
-
-			ClothesStorage.addCloth(name, size, price);
+			String name = rqName;
+			Character size = rqSize.charAt(0);
+			Double price = null;
+			try {
+				price = Double.parseDouble(rqPrice);
+			}catch (NumberFormatException e){
+				responceWriter.print("<h1>The price must be a number! Please, input number.</h1>");
+			}
+			ClothesStorage.addCloth(new ClothBuilder().buildName(name).
+					buildSize(size).buildPrice(price).buildCloth());
 
 			responceWriter.print("<h1> Congradulations! Cloth " + name + " was added successfully! </h1>");
 		}
