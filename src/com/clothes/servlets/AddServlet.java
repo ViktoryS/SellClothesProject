@@ -22,8 +22,10 @@ public class AddServlet extends HttpServlet {
 		String rqSize = request.getParameter("size");
 		String rqPrice = request.getParameter("price");
 
+		//TODO: Remove comments
 		//responceWriter.print("name = |" + rqName + "|        size = |" + rqSize + "|      price = |" + rqPrice + "|");
-
+		
+		//TODO: Create Util class for null value verification
 		if (rqName == null || rqName.equals("") || rqSize == null || rqSize.equals("") || rqPrice == null || rqPrice.equals("")){
 			responceWriter.print("<h1> Error with parameters:&nbsp name = " + rqName +
 					", size = " + rqSize + ", price = " + rqPrice + "</h1>");
@@ -36,6 +38,7 @@ public class AddServlet extends HttpServlet {
 			}catch (NumberFormatException e){
 				responceWriter.print("<h1>The price must be a number! Please, input number.</h1>");
 			}
+			//TODO: Fix this bug
 			ClothesStorage.addCloth(new ClothBuilder().buildName(name).
 					buildSize(size).buildPrice(price).buildCloth());
 
