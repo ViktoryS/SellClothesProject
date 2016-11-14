@@ -1,0 +1,20 @@
+#menuBar {
+    list-style-type: none;
+    width: inherit;
+    background: linear-gradient(to top, rgba(127, 64, 128, 0.61) 0%, #724c80 40%,rgba(127, 64, 128, 0.61) 100%);
+}
+#menuBar button {
+    background: linear-gradient(to top, rgba(128, 65, 104, 0.61) 0%, plum 40%, rgba(128, 65, 104, 0.61) 100%);
+    align: left;
+    font-size:14px;
+    font-weight:lighter;
+    line-height:70px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    transition: 0.5s ease-in-out;
+}
+#menuBar button:hover {
+    background: linear-gradient(to top, plum 0%, azure 40%, plum 100%);
+}
