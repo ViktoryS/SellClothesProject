@@ -1,0 +1,82 @@
+body{
+    background-image: url("Red-Background-Desktop-Img-In-High-Definition-34X.jpg");
+    font-family: Florence, cursive;
+}
+h1{
+    color: #f19996;
+    text-transform: uppercase;
+}
+#menuBar {
+    list-style-type: none;
+    width: inherit;
+    background: linear-gradient(to top, rgba(127, 64, 128, 0.61) 0%, #724c80 40%,rgba(127, 64, 128, 0.61) 100%);
+}
+#menuBar button {
+    font-family: Florence, cursive;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top, #7b2e38 0%, #f18a57 40%, #7b2e38 100%);
+    align: left;
+    font-size:14px;
+    line-height:70px;
+    display: inline-block;
+    width: 150px;
+    transition: 0.5s ease-in-out;
+}
+#menuBar button:hover {
+    background: linear-gradient(to top, plum 0%, azure 40%, plum 100%);
+}
+
+.tablesClass{
+    color: white;
+    font-size: 18px;
+    margin: 40px;
+}
+
+.tablesClass td{
+    height: 60px;
+}
+
+.tablesClass input[type=text] {
+    width: 250px;
+    font-family: Florence, cursive;
+    font-size: 14px;
+    color: white;
+    padding: 6px 0 4px 10px;
+    border: 1px solid #cecece;
+    background: #580042;
+    border-radius: 8px;
+}
+
+.submit {
+    font-family: Florence, cursive;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #cecece;
+    box-shadow: inset 0px 20px 20px #8a0e66;
+    background: #f12ec9;
+    border-radius: 8px;
+    padding: 8px 14px;
+    width: 120px;
+}
+.submit:hover {
+    box-shadow: inset 0px -20px 20px #8a0e66;
+}
+.submit:active {
+    margin-top: 1px;
+    margin-bottom: -1px;
+    zoom: 1;
+}
+
+.clothBoard{
+    width: 80%;
+    border: 1px solid #f12ec9;
+    cellpadding: 10px;
+    margin: 20px;
+}
+
+.clothBoard tr,td{
+    text-align: center;
+    border: 1px solid #df8b65;
+}
