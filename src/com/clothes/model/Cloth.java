@@ -1,11 +1,12 @@
 package com.clothes.model;
 
-public class Cloth{
+public class Cloth {
     private String name;
     private char size;
     private double price;
 
-    public Cloth(){}
+    public Cloth() {
+    }
 
     public Cloth(String name, char size, double price) {
         this.name = name;

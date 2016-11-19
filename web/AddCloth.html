@@ -7,23 +7,33 @@
 </head>
 <body>
 <div>
-<h1 align="center">Add Cloth</h1>
-<menu id="menuBar">
-    <button>Home</button>
-    <button>Add</button>
-    <button>DashBoard</button>
-</menu>
+    <h1 align="center">Add Cloth</h1>
+    <ul class="menuBar">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="AddCloth.html">Add</a></li>
+        <li><a href="Dashboard.html">DashBoard</a></li>
+    </ul>
 </div>
 <div align="center" class="tablesClass">
-<p>Please, input the parameters:</p>
-<form method="get" action="/add">
-    <table>
-        <tr><td>Name:</td><td><input type="text" name="name" value=""></td></tr>
-        <tr><td>Size:</td><td><input type="text" name="size" value=""></td></tr>
-        <tr><td>Price:</td><td><input type="text" name="price" value=""></td></tr>
-        <tr><td><input type="submit" class="submit" name="addButton" value="Add"></td></tr>
-    </table>
-</form>
+    <p>Please, input the parameters:</p>
+    <form method="get" action="/add">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Size:</td>
+                <td><input type="text" name="size"></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="text" name="price"></td>
+
+                <td><input type="submit" class="submit" name="addButton" value="Add"></td>
+            </tr>
+        </table>
+    </form>
 </div>
 
 </body>
