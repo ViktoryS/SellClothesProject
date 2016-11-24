@@ -5,9 +5,9 @@ public class UtilCloth {
     public static boolean ParamsVerification(String... params) {
         for (String parameter : params) {
             if (parameter == null || parameter.equals(""))
-                return false;
+                return true;
         }
-        return true;
+        return false;
     }
 
 }

@@ -1,5 +1,5 @@
 body {
-    background-image: url("background-image.jpg");
+    background-image: url("../images/background-image.jpg");
     font-family: Florence, cursive;
 }
 
@@ -90,7 +90,7 @@ h1 {
     margin: 20px;
 }
 
-.clothBoard>tr, td {
+.clothBoard tr {
     text-align: center;
     border: 1px solid #df8b65;
 }
