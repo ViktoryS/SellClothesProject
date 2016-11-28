@@ -9,14 +9,15 @@
 <div>
     <h1 align="center">Add Cloth</h1>
     <ul class="menuBar">
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="AddCloth.html">Add</a></li>
-        <li><a href="Dashboard.html">DashBoard</a></li>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/add">Add</a></li>
+        <li><a href="/list">DashBoard</a></li>
     </ul>
 </div>
 <div align="center" class="tablesClass">
+    <p class=${type}> ${message} </p>
     <p>Please, input the parameters:</p>
-    <form method="get" action="/add">
+    <form method="post" action="/add">
         <table >
             <tr>
                 <td>Name:</td>

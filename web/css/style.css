@@ -11,16 +11,21 @@ h1 {
 .menuBar {
     list-style-type: none;
     width: inherit;
+    margin: 0 auto;
     background: linear-gradient(to top, rgba(127, 64, 128, 0.61) 0%, #724c80 40%, rgba(127, 64, 128, 0.61) 100%);
 }
 
+.menuBar ul{
+    text-align: center;
+}
+
 .menuBar li {
+    left: 50%;
     text-align: center;
     font-family: Florence, cursive;
     text-transform: uppercase;
     background: linear-gradient(to top, #7c1f35 0%, #bf564f 40%, #7c1f35 100%);
     border: solid 1px #37084c;
-    align: left;
     font-size: 14px;
     line-height: 70px;
     display: inline-block;
@@ -45,7 +50,7 @@ h1 {
     margin: 40px;
 }
 
-.tablesClass td {
+.tablesClass tr {
     height: 60px;
 }
 
@@ -90,7 +95,16 @@ h1 {
     margin: 20px;
 }
 
-.clothBoard tr {
+.clothBoard td {
+    height: 60px;
     text-align: center;
     border: 1px solid #df8b65;
+}
+
+.success{
+    color: lightgreen;
+}
+
+.error{
+    color: red;
 }

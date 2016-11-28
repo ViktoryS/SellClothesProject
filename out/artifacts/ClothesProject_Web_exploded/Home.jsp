@@ -6,12 +6,12 @@
     <title>Home</title>
 </head>
 <body>
-<div>
     <h1 align="center">Home</h1>
-    <ul class="menuBar">
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="AddCloth.html">Add</a></li>
-        <li><a href="Dashboard.html">DashBoard</a></li>
+    <div class="menuBar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/list">DashBoard</a></li>
     </ul>
 </div>
 </body>
