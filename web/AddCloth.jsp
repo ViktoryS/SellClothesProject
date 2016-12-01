@@ -6,9 +6,9 @@
     <title>Add Cloth</title>
 </head>
 <body>
-<div>
-    <h1 align="center">Add Cloth</h1>
-    <ul class="menuBar">
+<h1 align="center">Add Cloth</h1>
+<div class="menuBar">
+    <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/add">Add</a></li>
         <li><a href="/list">DashBoard</a></li>
@@ -18,7 +18,7 @@
     <p class=${type}> ${message} </p>
     <p>Please, input the parameters:</p>
     <form method="post" action="/add">
-        <table >
+        <table>
             <tr>
                 <td>Name:</td>
                 <td><input type="text" name="name"></td>

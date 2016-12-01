@@ -22,10 +22,11 @@ public class AddServlet extends HttpServlet {
     public static final String SUCCESS_MESSAGE_END = " was added successfully!";
     public static final String TYPE_ATTRIBUTE = "type";
     public static final String MESSAGE_ATTRIBUTE = "message";
+    public static final String REDIRECT_PAGE = "AddCloth.jsp";
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("AddCloth.jsp");
+        response.sendRedirect(REDIRECT_PAGE);
     }
 
     protected void doPost(HttpServletRequest request,
@@ -60,7 +61,7 @@ public class AddServlet extends HttpServlet {
         request.setAttribute(MESSAGE_ATTRIBUTE, message);
         request.setAttribute(TYPE_ATTRIBUTE, type);
 
-        request.getRequestDispatcher("/AddCloth.jsp").forward(request, response);
+        request.getRequestDispatcher(REDIRECT_PAGE).forward(request, response);
     }
 
 }

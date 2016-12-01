@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"--%>
-         <%--pageEncoding="ISO-8859-1"%>--%>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,10 @@
     <title>Dashboard</title>
 </head>
 <body>
-<div>
-    <h1 align="center">DashBoard</h1>
-    <ul class="menuBar">
+
+<h1 align="center">DashBoard</h1>
+<div class="menuBar">
+    <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/add">Add</a></li>
         <li><a href="/list">DashBoard</a></li>
@@ -30,13 +31,13 @@
             <th></th>
         </tr>
         <c:forEach items="${listOfClothes}" var="cloth">
-        <tr>
-            <td>1</td>
-            <td>${cloth.getName()}</td>
-            <td>${cloth.getSize()}</td>
-            <td>${cloth.getPrice()}</td>
-            <td>Delete</td>
-        </tr>
+            <tr>
+                <td>1</td>
+                <td>${cloth.getName()}</td>
+                <td>${cloth.getSize()}</td>
+                <td>${cloth.getPrice()}</td>
+                <td>Delete</td>
+            </tr>
         </c:forEach>
     </table>
 </div>

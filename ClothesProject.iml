@@ -20,5 +20,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 7.0.72" level="application_server_libraries" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="standard-1.1.2" level="project" />
+    <orderEntry type="library" exported="" name="jstl1.1" level="project" />
+    <orderEntry type="library" exported="" name="jakarta-taglibs-standard-1.1" level="project" />
   </component>
 </module>
