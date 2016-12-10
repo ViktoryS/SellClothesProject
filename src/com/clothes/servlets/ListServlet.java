@@ -21,7 +21,7 @@ public class ListServlet extends HttpServlet {
                                                 throws ServletException, IOException {
         if (ClothesStorage.isEmpty()) {
             request.setAttribute(TYPE_ATTRIBUTE,TYPE_ERROR);
-            request.setAttribute(MESSAGE_ATTRIBUTE,EMPTY_LIST_MESSAGE);
+            request.setAttribute(MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE);
         } else {
             request.setAttribute(CLOTHES_ATTRIBUTE, ClothesStorage.getAllClothes());
         }

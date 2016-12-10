@@ -20,6 +20,13 @@ public class ClothesStorage {
         return clothes.get(i);
     }
 
+    public static Cloth getCloth(String name) {
+        for (Cloth cloth: ClothesStorage.getAllClothes())
+            if(name.equals(cloth.getName()))
+                return cloth;
+        return null;
+    }
+
     public static boolean addCloth(Cloth cloth) {
         return clothes.add(cloth);
     }
@@ -28,4 +35,16 @@ public class ClothesStorage {
         return clothes.isEmpty();
     }
 
+    public static boolean removeCloth(Cloth cloth){
+        return clothes.remove(cloth);
+    }
+
+    public static List<Cloth> getClohesByName(String param){
+        List<Cloth> listClothes = new ArrayList<>();
+        for (Cloth cloth: ClothesStorage.getAllClothes()){
+            if(cloth.getName().equalsIgnoreCase(param) || cloth.getName().contains(param))
+                listClothes.add(cloth);
+        }
+        return listClothes;
+    }
 }
