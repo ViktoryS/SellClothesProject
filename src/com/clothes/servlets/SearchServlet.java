@@ -22,13 +22,13 @@ public class SearchServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameParameter = request.getParameter("name");
-        List<Cloth> findClothes = ClothesStorage.getClohesByName(nameParameter);
+        List<Cloth> findClothes = ClothesStorage.getClothesByName(nameParameter);
         if (findClothes.isEmpty()) {
             request.setAttribute(TYPE_ATTRIBUTE, TYPE_ERROR);
             request.setAttribute(MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE + nameParameter);
         } else {
             request.setAttribute(CLOTHES_ATTRIBUTE, findClothes);
         }
-        request.getRequestDispatcher("List.jsp").forward(request, response);
+        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }
 }

@@ -1,10 +1,13 @@
 package com.clothes.model;
 
 public class ClothBuilder {
+
     private Cloth cloth;
+    private static long clothIds = 1;
 
     public ClothBuilder() {
         cloth = new Cloth();
+        cloth.setId(clothIds++);
     }
 
     public ClothBuilder buildName(String name) {

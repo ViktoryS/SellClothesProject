@@ -1,18 +1,11 @@
 package com.clothes.model;
 
 public class Cloth {
+
+    private long id;
     private String name;
     private char size;
     private double price;
-
-    public Cloth() {
-    }
-
-    public Cloth(String name, char size, double price) {
-        this.name = name;
-        this.size = size;
-        this.price = price;
-    }
 
     public String getName() {
         return name;
@@ -38,4 +31,11 @@ public class Cloth {
         this.price = price;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

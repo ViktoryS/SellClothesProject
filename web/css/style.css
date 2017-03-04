@@ -50,19 +50,41 @@ h1 {
     padding: 3%;
 }
 
-.borderimage{
-    border: 2px solid #c76d8d;
+.textimage{
+    color: white;
+    text-align: center;
+    font-size: 2.5em;
+    border-radius: 0.2em;
+    margin: 30% 0 0 45%;
     display: inline-block;
-    height: 100%;
-    width: 100%;
+    background: rgba(0, 0, 0, 0.82);
+    mix-blend-mode: multiply;
 }
 
-.borderimage span{
-    color: #580042;
-    font-size: xx-large;
-    right: 0px;
-    bottom: 0px;
+.homecontent{
+    /*border: solid 3px black;*/
     display: inline-block;
+    margin: 2em 20%;
+    padding: 2%;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 1em;
+    background: rgba(255, 255, 247, .5);
+    mix-blend-mode: color-dodge;
+}
+
+.homecontent a{
+    text-decoration: none;
+    color: inherit;
+    font-style: normal;
+}
+
+.homecontentitem{
+    /*border: solid 5px silver;*/
+    margin: 0 0.5em 0 0;
+
+    width: 45%;
+    float: left;
 }
 
 .tablesClass {

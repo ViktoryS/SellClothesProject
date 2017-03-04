@@ -22,7 +22,7 @@ public class AddServlet extends HttpServlet {
     public static final String SUCCESS_MESSAGE_END = " was added successfully!";
     public static final String TYPE_ATTRIBUTE = "type";
     public static final String MESSAGE_ATTRIBUTE = "message";
-    public static final String REDIRECT_PAGE = "AddCloth.jsp";
+    public static final String REDIRECT_PAGE = "add.jsp";
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {

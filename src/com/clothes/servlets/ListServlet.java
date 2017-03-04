@@ -25,7 +25,7 @@ public class ListServlet extends HttpServlet {
         } else {
             request.setAttribute(CLOTHES_ATTRIBUTE, ClothesStorage.getAllClothes());
         }
-        request.getRequestDispatcher("List.jsp").forward(request,response);
+        request.getRequestDispatcher("dashboard.jsp").forward(request,response);
     }
 
 }
