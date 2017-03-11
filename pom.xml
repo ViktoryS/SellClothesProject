@@ -34,7 +34,15 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat-maven-plugin</artifactId>
+            <version>2.2</version>
+            <type>pom</type>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -42,13 +50,29 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <url>http://localhost:8181/manager</url>
+                    <url>http://localhost:8080/manager/text</url>
                     <server>TomcatServer</server>
                     <path>/SellClothesProject</path>
-                    <username>admin</username>
-                    <password>admin</password>
+                    <username>tomcat</username>
+                    <password>s3cret</password>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>Student</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>Mentor</id>
+            <properties>
+                <port>8181</port>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
