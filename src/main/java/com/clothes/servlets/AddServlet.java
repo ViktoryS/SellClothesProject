@@ -3,6 +3,7 @@ package com.clothes.servlets;
 import com.clothes.dao.ClothesStorage;
 import com.clothes.model.ClothBuilder;
 import com.clothes.utils.UtilCloth;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,7 @@ public class AddServlet extends HttpServlet {
     public static final String TYPE_ATTRIBUTE = "type";
     public static final String MESSAGE_ATTRIBUTE = "message";
     public static final String REDIRECT_PAGE = "add.jsp";
+    private static final Logger logger = Logger.getLogger(AddServlet.class);
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
@@ -38,29 +40,33 @@ public class AddServlet extends HttpServlet {
         String rqSize = request.getParameter("size");
         String rqPrice = request.getParameter("price");
 
+
         if (UtilCloth.ParamsVerification(rqName, rqPrice, rqSize)) {
             message = ERROR_WITH_PARAMETERS + "&nbsp name = " + rqName +
                     ", size = " + rqSize + ", price = " + rqPrice;
             type = TYPE_ERROR;
+            logger.warn("Wrong parameters: " + rqName +
+                    ", " + rqSize + ", " + rqPrice);
         } else {
             String name = rqName;
             Character size = rqSize.charAt(0);
             Double price = null;
+            logger.info("Parameters' processing...");
             try {
                 price = Double.parseDouble(rqPrice);
                 ClothesStorage.addCloth(new ClothBuilder().buildName(name).
                         buildSize(size).buildPrice(price).buildCloth());
                 message = SUCCESS_MESSAGE_BEGIN + name + SUCCESS_MESSAGE_END;
                 type = TYPE_SUCCESS;
-
+                logger.info("New cloth was created!");
             } catch (NumberFormatException e) {
                 message = PRICE_ERROR;
                 type = TYPE_ERROR;
+                logger.error("Can't parse " + rqPrice + " by double. New cloth wasn't created.");
             }
         }
         request.setAttribute(MESSAGE_ATTRIBUTE, message);
         request.setAttribute(TYPE_ATTRIBUTE, type);
-
         request.getRequestDispatcher(REDIRECT_PAGE).forward(request, response);
     }
 
