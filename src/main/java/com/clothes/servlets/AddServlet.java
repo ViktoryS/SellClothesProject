@@ -51,14 +51,14 @@ public class AddServlet extends HttpServlet {
             String name = rqName;
             Character size = rqSize.charAt(0);
             Double price = null;
-            logger.info("Parameters' processing...");
+            logger.debug("Parameters' processing...");
             try {
                 price = Double.parseDouble(rqPrice);
                 ClothesStorage.addCloth(new ClothBuilder().buildName(name).
                         buildSize(size).buildPrice(price).buildCloth());
                 message = SUCCESS_MESSAGE_BEGIN + name + SUCCESS_MESSAGE_END;
                 type = TYPE_SUCCESS;
-                logger.info("New cloth was created!");
+                logger.debug("New cloth was created!");
             } catch (NumberFormatException e) {
                 message = PRICE_ERROR;
                 type = TYPE_ERROR;

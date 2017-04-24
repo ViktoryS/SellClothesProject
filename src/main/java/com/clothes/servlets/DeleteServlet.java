@@ -19,12 +19,11 @@ public class DeleteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String deletedClothParameter = request.getParameter("deleteCloth");
-        logger.info("Request parameter: " + deletedClothParameter);
+        logger.debug("Request parameter: " + deletedClothParameter);
         if (!UtilCloth.ParamsVerification(deletedClothParameter)) {
             long deletedClothId = Long.parseLong(deletedClothParameter);
-            logger.info("Parsing parameter..");
             ClothesStorage.removeCloth(ClothesStorage.getCloth(deletedClothId));
-            logger.info("Cloth with id = " + deletedClothId + " deleted.");
+            logger.debug("Cloth with id = " + deletedClothId + " deleted.");
         }
         request.setAttribute(CLOTHES_ATTRIBUTE, ClothesStorage.getAllClothes());
         request.getRequestDispatcher("dashboard.jsp").forward(request, response);

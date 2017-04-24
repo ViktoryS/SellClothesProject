@@ -9,14 +9,30 @@ h1 {
     text-transform: uppercase;
 }
 
+.userMenu{
+    font-family: Florence, cursive;
+    font-size: 14px;
+    color: #c7aabe;
+    display: inline-block;
+    right: 0em;
+    margin-left: 80%;
+}
+
+.userMenu a{
+    text-decoration: none;
+    color: inherit;
+    font-style: normal;
+}
+
 .menuBar {
     list-style-type: none;
     width: inherit;
-    margin: 0;
+    margin-bottom: 2%;
     background: linear-gradient(to top, rgba(127, 64, 128, 0.61) 0%, #724c80 40%, rgba(127, 64, 128, 0.61) 100%);
 }
 
 .menuBar ul{
+    margin: 0em;
     text-align: center;
 }
 
@@ -97,7 +113,7 @@ h1 {
     height: 60px;
 }
 
-.tablesClass input[type=text] {
+.tablesClass input{
     width: 250px;
     font-family: Florence, cursive;
     font-size: 14px;

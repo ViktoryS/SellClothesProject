@@ -24,12 +24,12 @@ public class SearchServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameParameter = request.getParameter("name");
-        logger.info("Requet parameter: " + nameParameter);
+        logger.debug("Requet parameter: " + nameParameter);
         List<Cloth> findClothes = ClothesStorage.getClothesByName(nameParameter);
         if (findClothes.isEmpty()) {
             request.setAttribute(TYPE_ATTRIBUTE, TYPE_ERROR);
             request.setAttribute(MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE + nameParameter);
-            logger.info("Clothes weren't found by parameter: " + nameParameter);
+            logger.debug("Clothes weren't found by parameter: " + nameParameter);
         } else {
             request.setAttribute(CLOTHES_ATTRIBUTE, findClothes);
 
