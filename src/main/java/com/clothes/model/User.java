@@ -4,6 +4,7 @@ public class User {
     private long id;
     private String name;
     private String login;
+    private String email;
     private String password;
 
     public long getId() {
@@ -28,6 +29,14 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

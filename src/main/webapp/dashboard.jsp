@@ -11,12 +11,15 @@
 <body>
 
 <h1 align="center">DashBoard</h1>
-<div class="menuBar">
-    <ul>
-        <li><a href="home">Home</a></li>
-        <li><a href="add">Add</a></li>
-        <li><a href="list">DashBoard</a></li>
-    </ul>
+<div>
+    <span class="userMenu"><a href="registration">Registration</a> | Sigh In</span>
+    <div class="menuBar">
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="add">Add</a></li>
+            <li><a href="list">DashBoard</a></li>
+        </ul>
+    </div>
 </div>
 <div align="center" class="tablesClass">
     <p class=${type}>${message}</p>

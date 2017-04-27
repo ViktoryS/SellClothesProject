@@ -24,6 +24,11 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder setEmail(String email){
+        this.user.setEmail(email);
+        return this;
+    }
+
     public User buildUser(){
         return this.user;
     }

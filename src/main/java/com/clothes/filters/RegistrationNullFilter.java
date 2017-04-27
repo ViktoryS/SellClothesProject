@@ -4,11 +4,12 @@ import com.clothes.utils.UtilCloth;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.regex.Pattern;
 
 @WebFilter("/registration")
-public class RegistrationFilter implements Filter {
+public class RegistrationNullFilter implements Filter {
+
     public static final String REDIRECT_PAGE = "registration.jsp";
     public static final String ERROR_WITH_PARAMETERS = "Error with parameters:";
     public static final String TYPE_ERROR = "error";
@@ -20,6 +21,11 @@ public class RegistrationFilter implements Filter {
     public void destroy() {/*NONE*/}
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+
+        if (!((HttpServletRequest) request).getMethod().equalsIgnoreCase("POST")) {
+            request.getRequestDispatcher(REDIRECT_PAGE).forward(request, response);
+        }
+
         String message = null;
         String type = null;
 
@@ -31,27 +37,15 @@ public class RegistrationFilter implements Filter {
         String password = request.getParameter("password");
         String repeatPassword = request.getParameter("repeatPassword");
 
-
         if (UtilCloth.ParamsVerification(name, email, login, password, repeatPassword)) {
             message = ERROR_WITH_PARAMETERS + " some parameter is empty!";
             type = TYPE_ERROR;
         } else {
-            //"\\S[^@]+@\\S[^@]+\\.\\S[^@]+");
-            if(!Pattern.matches("^([\\w\\.]*)([\\w\\+]*)@([\\w\\.\\+]*)$", email)){
-                message = ERROR_WITH_PARAMETERS + " your e-mail is not valid!";
-                type = TYPE_ERROR;
-            }else if(!password.equals(repeatPassword)){
-                message = ERROR_WITH_PARAMETERS + " password repetition is not valid!";
-                type = TYPE_ERROR;
-            }else {
-                isValid = true;
-                type = TYPE_SUCCESS;
-                message = SUCCESS_MESSAGE;
-            }
+            isValid = true;
         }
         request.setAttribute(MESSAGE_ATTRIBUTE, message);
         request.setAttribute(TYPE_ATTRIBUTE, type);
-        //request.getRequestDispatcher(REDIRECT_PAGE).forward(request, response);
+
         if(isValid){
             chain.doFilter(request, response);
         }else{
