@@ -10,13 +10,11 @@ import java.io.IOException;
 @WebFilter("/registration")
 public class RegistrationNullFilter implements Filter {
 
-    public static final String REDIRECT_PAGE = "registration.jsp";
-    public static final String ERROR_WITH_PARAMETERS = "Error with parameters:";
-    public static final String TYPE_ERROR = "error";
-    public static final String TYPE_SUCCESS = "success";
-    public static final String MESSAGE_ATTRIBUTE = "message";
-    public static final String TYPE_ATTRIBUTE = "type";
-    public static final String SUCCESS_MESSAGE = "Congratulations! You're registered successfully";
+    private static final String REDIRECT_PAGE = "registration.jsp";
+    private static final String ERROR_WITH_PARAMETERS = "Error with parameters:";
+    private static final String TYPE_ERROR = "error";
+    private static final String MESSAGE_ATTRIBUTE = "message";
+    private static final String TYPE_ATTRIBUTE = "type";
 
     public void destroy() {/*NONE*/}
 
