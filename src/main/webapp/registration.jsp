@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <title>Add Cloth</title>
+    <title>Registration</title>
 </head>
 <body>
 <h1 align="center">Registration Form</h1>
 <div>
-    <span class="userMenu"><a href="registration">Registration</a> | Sigh In</span>
+    <span class="userMenu"><a href="registration">Registration</a> | <a href="login">Log In</a></span>
     <div class="menuBar">
         <ul>
             <li><a href="home">Home</a></li>

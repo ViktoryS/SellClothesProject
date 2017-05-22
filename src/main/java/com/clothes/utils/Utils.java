@@ -3,10 +3,11 @@ package com.clothes.utils;
 import org.apache.log4j.Logger;
 
 import java.util.Arrays;
+import java.util.Enumeration;
 
-public class UtilCloth {
+public class Utils {
 
-    private static Logger logger = Logger.getLogger(UtilCloth.class);
+    private static Logger logger = Logger.getLogger(Utils.class);
 
     public static boolean ParamsVerification(String... params) {
         logger.debug("Params Verification: " + Arrays.toString(params));
@@ -17,6 +18,15 @@ public class UtilCloth {
             }
         }
         logger.debug("Parameters OK!");
+        return false;
+    }
+
+    public static boolean userExists(Enumeration<String> enumeration){
+        while (enumeration.hasMoreElements()){
+            if(enumeration.nextElement().equals("user")){
+                return true;
+            }
+        }
         return false;
     }
 

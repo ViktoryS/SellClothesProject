@@ -1,7 +1,7 @@
 package com.clothes.servlets;
 
 import com.clothes.dao.ClothesStorage;
-import com.clothes.utils.UtilCloth;
+import com.clothes.utils.Utils;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String deletedClothParameter = request.getParameter("deleteCloth");
         logger.debug("Request parameter: " + deletedClothParameter);
-        if (!UtilCloth.ParamsVerification(deletedClothParameter)) {
+        if (!Utils.ParamsVerification(deletedClothParameter)) {
             long deletedClothId = Long.parseLong(deletedClothParameter);
             ClothesStorage.removeCloth(ClothesStorage.getCloth(deletedClothId));
             logger.debug("Cloth with id = " + deletedClothId + " deleted.");

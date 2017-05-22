@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <title>Add Cloth</title>
+    <title>Log In</title>
 </head>
 <body>
-<h1 align="center">Add Cloth</h1>
+<h1 align="center">Log In</h1>
 <div>
     <span class="userMenu"><a href="registration">Registration</a> | <a href="login">Log In</a></span>
     <div class="menuBar">
@@ -20,22 +20,18 @@
 <div align="center" class="tablesClass">
     <p class=${type}> ${message} </p>
     <p>Please, input the parameters:</p>
-    <form method="post" action="add">
+    <form method="post" action="login">
         <table>
             <tr>
-                <td>Name:</td>
-                <td><input type="text" name="name"></td>
+                <td>Login:</td>
+                <td><input type="text" name="j_username"></td>
             </tr>
             <tr>
-                <td>Size:</td>
-                <td><input type="text" name="size"></td>
+                <td>Password:</td>
+                <td><input type="text" name="j_password"></td>
             </tr>
             <tr>
-                <td>Price:</td>
-                <td><input type="text" name="price"></td>
-            </tr>
-            <tr>
-                <td><input type="submit" class="submit" name="addButton" value="Add"></td>
+                <td><input type="submit" class="submit" name="login" value="Log In"></td>
             </tr>
         </table>
     </form>

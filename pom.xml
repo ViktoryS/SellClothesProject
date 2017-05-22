@@ -34,6 +34,17 @@
             <version>1.2.17</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.2.7.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1212.jre6</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -44,26 +55,10 @@
                 <version>2.2</version>
                 <configuration>
                     <server>TomcatServer</server>
-                   <!-- <update>true</update>-->
                     <url>${tomcat.url}</url>
-                   <!-- <hostName>${user.hostname}</hostName>
-                    <port>${user.port}</port>-->
-                    <!--<path>/SellClothesProject</path>-->
-                   <!-- <username>${user.username}</username>
-                    <password>${user.password}</password>-->
-                    <!--<username>tomcat</username>-->
-                    <!--<password>s3cret</password>-->
                 </configuration>
             </plugin>
-
         </plugins>
-
-        <!--<resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>-->
     </build>
 
     <profiles>

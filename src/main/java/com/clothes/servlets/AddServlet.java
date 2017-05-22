@@ -2,7 +2,7 @@ package com.clothes.servlets;
 
 import com.clothes.dao.ClothesStorage;
 import com.clothes.model.ClothBuilder;
-import com.clothes.utils.UtilCloth;
+import com.clothes.utils.Utils;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -24,10 +24,14 @@ public class AddServlet extends HttpServlet {
     public static final String TYPE_ATTRIBUTE = "type";
     public static final String MESSAGE_ATTRIBUTE = "message";
     public static final String REDIRECT_PAGE = "add.jsp";
+    public static final String LOGIN_PAGE = "login.jsp";
     private static final Logger logger = Logger.getLogger(AddServlet.class);
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
+        if (!Utils.userExists(request.getSession().getAttributeNames())){
+            request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
+        }
         response.sendRedirect(REDIRECT_PAGE);
     }
 
@@ -36,12 +40,16 @@ public class AddServlet extends HttpServlet {
         String message = null;
         String type = null;
 
+        if (!Utils.userExists(request.getSession().getAttributeNames())){
+            request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
+        }
+
         String rqName = request.getParameter("name");
         String rqSize = request.getParameter("size");
         String rqPrice = request.getParameter("price");
 
 
-        if (UtilCloth.ParamsVerification(rqName, rqPrice, rqSize)) {
+        if (Utils.ParamsVerification(rqName, rqPrice, rqSize)) {
             message = ERROR_WITH_PARAMETERS + "&nbsp name = " + rqName +
                     ", size = " + rqSize + ", price = " + rqPrice;
             type = TYPE_ERROR;

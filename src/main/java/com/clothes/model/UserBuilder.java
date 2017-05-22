@@ -6,7 +6,7 @@ public class UserBuilder {
 
     public UserBuilder(){
         this.user = new User();
-        user.setId(userIds++);
+        //user.setId(userIds++);
     }
 
     public UserBuilder setName(String name){
@@ -31,6 +31,10 @@ public class UserBuilder {
 
     public User buildUser(){
         return this.user;
+    }
+
+    public static void setUserId(long id){
+        userIds = id;
     }
 
 }

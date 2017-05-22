@@ -1,10 +1,25 @@
 package com.clothes.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
+    @SequenceGenerator(sequenceName = "users_id_seq", name = "users_id_seq")
     private long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "login")
     private String login;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password;
 
     public long getId() {

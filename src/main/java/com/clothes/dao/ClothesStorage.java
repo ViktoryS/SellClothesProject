@@ -1,17 +1,48 @@
 package com.clothes.dao;
 
 import com.clothes.model.Cloth;
+import com.clothes.utils.HibernateUtil;
+import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClothesStorage {
 
-    private static List<Cloth> clothes = new ArrayList<Cloth>();
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    //private static EntityManager entityManager = HibernateUtil.getEntityManager();
+    private static Logger logger = Logger.getLogger(ClothesStorage.class);
+    private static List<Cloth> clothes  = new ArrayList<Cloth>();
+
+    static {
+        initList();
+    }
 
     private ClothesStorage() {}
 
+    public static void initList(){
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            logger.debug("Open session..");
+            session.beginTransaction();
+            logger.debug("Begin transaction");
+            clothes = (List<Cloth>) session.createQuery("FROM Cloth").list();
+            logger.debug("list of clothes was initialised");
+            session.getTransaction().commit();
+        }catch (Exception e){
+            logger.error("Error of getting clothes from DB! " + e);
+        }finally {
+            if(session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
     public static List<Cloth> getAllClothes() {
+        initList();
         return clothes;
     }
 
@@ -29,8 +60,23 @@ public class ClothesStorage {
         return null;
     }
 
-    public static boolean addCloth(Cloth cloth) {
-        return clothes.add(cloth);
+    public static void addCloth(Cloth cloth) {
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            logger.debug("Open session..");
+            session.beginTransaction();
+            logger.debug("Begin transaction");
+            session.persist(cloth);
+            logger.debug("New cloth was saved!");
+            session.getTransaction().commit();
+        }catch (Exception e){
+            logger.error("Error of saving data to DB!  " + e);
+        }finally {
+            if(session.isOpen()){
+                session.close();
+            }
+        }
     }
 
     public static boolean isEmpty() {

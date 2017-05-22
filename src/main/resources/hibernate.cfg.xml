@@ -1,0 +1,44 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/clothDB</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">admin</property>
+        <property name="format_sql">true</property>
+        <property name="show_sql">true</property>
+
+        <property name="hibernate.c3p0.max_size">10</property>
+        <property name="hibernate.c3p0.min_size">4</property>
+        <property name="hibernate.c3p0.timeout">5000</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">5000</property>
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <property name="hibernate.c3p0.validate">false</property>
+
+        <mapping class="com.clothes.model.Cloth"/>
+        <mapping class="com.clothes.model.User"/>
+    </session-factory>
+</hibernate-configuration>
+
+<!--<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+             <!--xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"-->
+             <!--version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">-->
+    <!--<persistence-unit name="test" transaction-type="RESOURCE_LOCAL">-->
+        <!--<class>com.clothes.model.Cloth</class>-->
+        <!--<properties>-->
+            <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>-->
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/clothDB"/>-->
+            <!--<property name="javax.persistence.jdbc.user" value="postgres"/>-->
+            <!--<property name="javax.persistence.jdbc.password" value="admin"/>-->
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>-->
+            <!--<property name="show_sql" value="true"/>-->
+            <!--<property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>-->
+        <!--</properties>-->
+    <!--</persistence-unit>-->
+<!--</persistence>-->

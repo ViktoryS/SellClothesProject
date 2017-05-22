@@ -7,7 +7,7 @@ public class ClothBuilder {
 
     public ClothBuilder() {
         cloth = new Cloth();
-        cloth.setId(clothIds++);
+        //cloth.setId(clothIds++);
     }
 
     public ClothBuilder buildName(String name) {
@@ -27,6 +27,10 @@ public class ClothBuilder {
 
     public Cloth buildCloth() {
         return this.cloth;
+    }
+
+    public static void setClothId(long id){
+        clothIds = id;
     }
 }
 
