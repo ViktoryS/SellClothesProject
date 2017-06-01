@@ -1,13 +1,13 @@
 package com.clothes.model;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
-    @SequenceGenerator(sequenceName = "users_id_seq", name = "users_id_seq")
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
+//    @SequenceGenerator(sequenceName = "users_id_seq", name = "users_id_seq")
+    @GeneratedValue
     private long id;
 
     @Column(name = "name")

@@ -13,6 +13,7 @@
         <property name="format_sql">true</property>
         <property name="show_sql">true</property>
 
+
         <property name="hibernate.c3p0.max_size">10</property>
         <property name="hibernate.c3p0.min_size">4</property>
         <property name="hibernate.c3p0.timeout">5000</property>
@@ -20,6 +21,7 @@
         <property name="hibernate.c3p0.idle_test_period">5000</property>
         <property name="hibernate.c3p0.acquire_increment">2</property>
         <property name="hibernate.c3p0.validate">false</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="com.clothes.model.Cloth"/>
         <mapping class="com.clothes.model.User"/>

@@ -42,7 +42,7 @@
                 <td>${cloth.name}</td>
                 <td>${cloth.size}</td>
                 <td>${cloth.price}</td>
-                <td>
+                <td width="15%">
                     <form method="get" action="delete">
                         <input type="hidden" name="deleteCloth" value="${cloth.id}">
                         <input type="submit" class="submit" name="deleteCloth" value="Delete"/>

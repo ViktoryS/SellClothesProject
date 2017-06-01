@@ -21,6 +21,7 @@ public class AuthentificationFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws ServletException, IOException {
+
         String message = null;
         String type = null;
         logger.debug("Casting request..");

@@ -1,6 +1,6 @@
 package com.clothes.servlets;
 
-import com.clothes.dao.ClothesStorage;
+import com.clothes.dao.ClothDAO;
 import com.clothes.utils.Utils;
 import org.apache.log4j.Logger;
 
@@ -22,10 +22,10 @@ public class DeleteServlet extends HttpServlet {
         logger.debug("Request parameter: " + deletedClothParameter);
         if (!Utils.ParamsVerification(deletedClothParameter)) {
             long deletedClothId = Long.parseLong(deletedClothParameter);
-            ClothesStorage.removeCloth(ClothesStorage.getCloth(deletedClothId));
+            ClothDAO.removeCloth(ClothDAO.getCloth(deletedClothId));
             logger.debug("Cloth with id = " + deletedClothId + " deleted.");
         }
-        request.setAttribute(CLOTHES_ATTRIBUTE, ClothesStorage.getAllClothes());
+        request.setAttribute(CLOTHES_ATTRIBUTE, ClothDAO.getAllClothes());
         request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }
 }

@@ -1,6 +1,6 @@
 package com.clothes.servlets;
 
-import com.clothes.dao.UserStorage;
+import com.clothes.dao.UserDAO;
 import com.clothes.model.User;
 import org.apache.log4j.Logger;
 
@@ -13,11 +13,10 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     private static final String REDIRECT_PAGE = "login.jsp";
-    private static final String TYPE_SUCCESS = "success";
+    private static final String SUCCESS_REDIRECT = "home.jsp";
     public static final String TYPE_ERROR = "error";
     private static final String MESSAGE_ATTRIBUTE = "message";
     private static final String TYPE_ATTRIBUTE = "type";
-    private static final String SUCCESS_MESSAGE = "Congratulations! You're registered successfully";
     public static final String NULL_USER_ERROR = "No such user is the storage! Login is wrong!";
     public static final String WRONG_PASSWORD_ERROR = "Password is wrong!";
     private static final Logger logger = Logger.getLogger(LoginServlet.class);
@@ -30,12 +29,13 @@ public class LoginServlet extends HttpServlet {
         String message = null;
         String type = null;
 
+
         logger.debug("Get parameters..");
         String login = request.getParameter("j_username");
         String password = request.getParameter("j_password");
         User user = null;
 
-        for(User sUser: UserStorage.getAllUsers()){
+        for(User sUser: UserDAO.getAllUsers()){
             if(sUser.getLogin().equals(login)){
                 user = sUser;
                 break;
@@ -51,8 +51,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user", user);
                 logger.debug("The user's attribute was added in the session!");
 
-                message = SUCCESS_MESSAGE;
-                type = TYPE_SUCCESS;
+                request.getRequestDispatcher(SUCCESS_REDIRECT).forward(request, response);
             }else {
                 type = TYPE_ERROR;
                 message = WRONG_PASSWORD_ERROR;

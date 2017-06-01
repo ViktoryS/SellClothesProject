@@ -1,7 +1,7 @@
 package com.clothes.servlets;
 
-import com.clothes.dao.ClothesStorage;
-import com.clothes.model.ClothBuilder;
+import com.clothes.dao.ClothDAO;
+import com.clothes.builder.ClothBuilder;
 import com.clothes.utils.Utils;
 import org.apache.log4j.Logger;
 
@@ -62,7 +62,7 @@ public class AddServlet extends HttpServlet {
             logger.debug("Parameters' processing...");
             try {
                 price = Double.parseDouble(rqPrice);
-                ClothesStorage.addCloth(new ClothBuilder().buildName(name).
+                ClothDAO.addCloth(new ClothBuilder().buildName(name).
                         buildSize(size).buildPrice(price).buildCloth());
                 message = SUCCESS_MESSAGE_BEGIN + name + SUCCESS_MESSAGE_END;
                 type = TYPE_SUCCESS;

@@ -1,6 +1,6 @@
 package com.clothes.servlets;
 
-import com.clothes.dao.ClothesStorage;
+import com.clothes.dao.ClothDAO;
 import com.clothes.utils.Utils;
 import org.apache.log4j.Logger;
 
@@ -37,12 +37,12 @@ public class ListServlet extends HttpServlet {
             request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
         }
 
-        if (ClothesStorage.isEmpty()) {
+        if (ClothDAO.isEmpty()) {
             request.setAttribute(TYPE_ATTRIBUTE,TYPE_ERROR);
             request.setAttribute(MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE);
             logger.info("There are no clothes in the storage");
         } else {
-            request.setAttribute(CLOTHES_ATTRIBUTE, ClothesStorage.getAllClothes());
+            request.setAttribute(CLOTHES_ATTRIBUTE, ClothDAO.getAllClothes());
             logger.info("Displaying clothes..");
         }
         request.getRequestDispatcher(REDIRECT_PAGE).forward(request,response);

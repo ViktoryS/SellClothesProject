@@ -9,15 +9,15 @@ import org.hibernate.SessionFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserStorage {
-    public static List<User> users = new ArrayList<User>();
+public class UserDAO {
     private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-    private static Logger logger = Logger.getLogger(UserStorage.class);
+    private static Logger logger = Logger.getLogger(UserDAO.class);
 
-    private UserStorage(){}
+    private UserDAO(){}
 
-    public static void initList(){
+    public static List<User> getAllUsers(){
         Session session = null;
+        List<User> users = new ArrayList<User>();
         try {
             session = sessionFactory.openSession();
             logger.debug("Open session..");
@@ -33,22 +33,18 @@ public class UserStorage {
                 session.close();
             }
         }
-    }
-
-    public static List<User> getAllUsers() {
-        initList();
         return users;
     }
 
     public static User getUser(long id) {
-        for (User User: users)
+        for (User User: getAllUsers())
             if(User.getId() == id)
                 return User;
         return null;
     }
 
     public static User getUser(String name) {
-        for (User User: users)
+        for (User User: getAllUsers())
             if(name.equals(User.getName()))
                 return User;
         return null;
@@ -74,16 +70,16 @@ public class UserStorage {
     }
 
     public static boolean isEmpty() {
-        return users.isEmpty();
+        return getAllUsers().isEmpty();
     }
 
     public static boolean removeUser(User User){
-        return users.remove(User);
+        return getAllUsers().remove(User);
     }
 
     public static List<User> getUsersByName(String param){
         List<User> listUsers = new ArrayList<User>();
-        for (User User: users){
+        for (User User: getAllUsers()){
             if(User.getName().equalsIgnoreCase(param) || User.getName().contains(param))
                 listUsers.add(User);
         }

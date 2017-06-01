@@ -25,6 +25,7 @@ public class HomeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String authMessage = null;
 
         if (!Utils.userExists(request.getSession().getAttributeNames())){
             request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
@@ -32,10 +33,6 @@ public class HomeServlet extends HttpServlet {
 
         if(logger.isDebugEnabled()){
             logger.debug("This is debug : HomeServlet");
-        }
-
-        if(logger.isInfoEnabled()){
-            logger.info("This is info : HomeServlet");
         }
         response.sendRedirect("home.jsp");
     }

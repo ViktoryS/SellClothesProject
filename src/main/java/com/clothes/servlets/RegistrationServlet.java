@@ -1,7 +1,7 @@
 package com.clothes.servlets;
 
-import com.clothes.dao.UserStorage;
-import com.clothes.model.UserBuilder;
+import com.clothes.dao.UserDAO;
+import com.clothes.builder.UserBuilder;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -34,7 +34,7 @@ public class RegistrationServlet extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
-        UserStorage.addUser(new UserBuilder().setName(name).setEmail(email).
+        UserDAO.addUser(new UserBuilder().setName(name).setEmail(email).
                 setLogin(login).setPassword(password).buildUser());
         logger.debug("User was built!");
 

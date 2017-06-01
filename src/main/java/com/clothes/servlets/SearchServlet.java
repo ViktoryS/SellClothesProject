@@ -1,6 +1,6 @@
 package com.clothes.servlets;
 
-import com.clothes.dao.ClothesStorage;
+import com.clothes.dao.ClothDAO;
 import com.clothes.model.Cloth;
 import org.apache.log4j.Logger;
 
@@ -25,7 +25,7 @@ public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameParameter = request.getParameter("name");
         logger.debug("Requet parameter: " + nameParameter);
-        List<Cloth> findClothes = ClothesStorage.getClothesByName(nameParameter);
+        List<Cloth> findClothes = ClothDAO.getClothesByName(nameParameter);
         if (findClothes.isEmpty()) {
             request.setAttribute(TYPE_ATTRIBUTE, TYPE_ERROR);
             request.setAttribute(MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE + nameParameter);

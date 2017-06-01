@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 @WebFilter("/registration")
 public class RegistrationPasswordFilter implements Filter {
@@ -34,7 +35,7 @@ public class RegistrationPasswordFilter implements Filter {
         String repeatPassword = request.getParameter("repeatPassword");
         logger.debug("Get parameters..");
 
-        if (!password.equalsIgnoreCase(repeatPassword)){
+        if (!password.equalsIgnoreCase(repeatPassword) && Pattern.matches("//S{4,25}", password)){
             logger.warn("Error with passwords!");
             message = ERROR_WITH_PARAMETERS + " passwords is not the same!";
             type = TYPE_ERROR;

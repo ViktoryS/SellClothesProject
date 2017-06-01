@@ -1,4 +1,6 @@
-package com.clothes.model;
+package com.clothes.builder;
+
+import com.clothes.model.Cloth;
 
 public class ClothBuilder {
 
