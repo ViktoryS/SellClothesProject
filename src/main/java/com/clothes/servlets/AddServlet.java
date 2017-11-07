@@ -40,14 +40,9 @@ public class AddServlet extends HttpServlet {
         String message = null;
         String type = null;
 
-        if (!Utils.userExists(request.getSession().getAttributeNames())){
-            request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
-        }
-
         String rqName = request.getParameter("name");
         String rqSize = request.getParameter("size");
         String rqPrice = request.getParameter("price");
-
 
         if (Utils.ParamsVerification(rqName, rqPrice, rqSize)) {
             message = ERROR_WITH_PARAMETERS + "&nbsp name = " + rqName +

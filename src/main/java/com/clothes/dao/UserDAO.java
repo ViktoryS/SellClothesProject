@@ -79,9 +79,9 @@ public class UserDAO {
 
     public static List<User> getUsersByName(String param){
         List<User> listUsers = new ArrayList<User>();
-        for (User User: getAllUsers()){
-            if(User.getName().equalsIgnoreCase(param) || User.getName().contains(param))
-                listUsers.add(User);
+        for (User user: getAllUsers()){
+            if(user.getName().equalsIgnoreCase(param) || user.getName().contains(param))
+                listUsers.add(user);
         }
         return listUsers;
     }

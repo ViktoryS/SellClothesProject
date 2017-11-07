@@ -8,7 +8,7 @@
 <body>
 <h1 align="center">Home</h1>
 <div>
-	<span class="userMenu"><a href="registration">Registration</a> | <a href="login">Log In</a></span>
+	<span class="userMenu">${logInfo}</span>
 	<div class="menuBar">
 		<ul>
 			<li><a href="home">Home</a></li>

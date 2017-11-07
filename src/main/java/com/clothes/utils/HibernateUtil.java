@@ -9,11 +9,9 @@ import org.hibernate.service.ServiceRegistryBuilder;
 public class HibernateUtil {
     private static final SessionFactory sessionFactory;
     private static final ServiceRegistry serviceRegistry;
-    //private static final EntityManagerFactory entityManagerFactory;
     private static final Logger logger = Logger.getLogger(HibernateUtil.class);
     static {
         try {
-            // Create the SessionFactory from hibernate.cfg.xml
             logger.debug("Creating the cofiguration..");
             Configuration configuration = new Configuration();
             configuration.configure();
@@ -37,8 +35,4 @@ public class HibernateUtil {
         if (sessionFactory != null)
             sessionFactory.close();
     }
-
-//    public static EntityManager getEntityManager(){
-//        return entityManagerFactory.createEntityManager();
-//    }
 }

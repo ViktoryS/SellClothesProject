@@ -1,7 +1,6 @@
 package com.clothes.servlets;
 
 import com.clothes.dao.ClothDAO;
-import com.clothes.utils.Utils;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -24,19 +23,11 @@ public class ListServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (!Utils.userExists(request.getSession().getAttributeNames())){
-            request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
-        }
         request.getRequestDispatcher(REDIRECT_PAGE).forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
                                                 throws ServletException, IOException {
-
-        if (!Utils.userExists(request.getSession().getAttributeNames())){
-            request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
-        }
-
         if (ClothDAO.isEmpty()) {
             request.setAttribute(TYPE_ATTRIBUTE,TYPE_ERROR);
             request.setAttribute(MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE);
